@@ -1,0 +1,51 @@
+﻿@using MVCTutor.ViewModel
+@model MVCTutor.ViewModel.EmployeeListVM
+
+
+@{
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+@section TitleSection{
+    MyView
+}
+
+<!DOCTYPE html>
+
+@section ContentBody{
+
+    <div>
+        @{
+            Html.RenderAction("GetAddNewLink");
+        }
+
+
+        Welcome to MVC, you must complete this Exercise this time! <br />
+
+
+        @{
+            MVCTutor.Models.Employee emp = (MVCTutor.Models.Employee)ViewBag.Employee;
+        }
+
+        <b>
+            Employee Details:<br />
+        </b>
+        <table>
+            <tr>
+                <th>Employee Name</th>
+                <th>Salary</th>
+            </tr>
+            @foreach (EmployeVM item in Model.Employees)
+            {
+                <tr>
+                    <td>@item.EmployeeName</td>
+                    <td style="background-color:@item.SalaryColor"> @item.Salary</td>
+                </tr>
+            }
+        </table>
+
+
+
+    </div>
+    }
+   

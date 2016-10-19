@@ -1,0 +1,34 @@
+﻿@using MVCTutor.ViewModel
+@model DepartmentListVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Departments</title>
+</head>
+<body>
+    <div> 
+        Hello, @Model.UserName
+
+        <table>
+            <tr>
+                <th>Department Name</th>
+                <th>Location</th>
+            </tr>
+            @foreach (DepartmentVM dept in Model.DepartmentsList)
+            {
+                <tr>
+                    <td>@dept.DepartmentName</td>
+                    <td>@dept.Location</td>
+                </tr>
+                
+            }
+        </table>
+    </div>
+</body>
+</html>
